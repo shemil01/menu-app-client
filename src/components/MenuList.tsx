@@ -5,7 +5,8 @@ export default function MenuList() {
   const { activeMenu, filteredItems } = useMenu();
 
   return (
-    <div className="bg-black text-white py-16 px-6 md:px-16 lg:px-32">
+    <div className="bg-black text-white py-16 px-6 md:px-16 lg:px-32 bg-center"         style={{ backgroundImage: "url('/bg.png')" }}
+>
       <div className="max-w-4xl mx-auto border border-gray-700 p-8 relative">
         <h2 className="text-center text-3xl font-bold text-red-500 uppercase mb-6">
           <span className="border-t border-gray-500 w-10 inline-block mr-4"></span>

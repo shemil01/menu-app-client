@@ -8,6 +8,7 @@ import MenuList from "../components/MenuList";
 import AddMenuButton from "@/components/shared/AddMenuButton";
 import AddMenuItemButton from "@/components/shared/AddMenuItemButton";
 import Modals from "@/components/modal/Modals";
+import Footer from "@/components/Footer";
 
 export default function Home() {
   const { fetchMenus, menus, activeMenu } = useMenu();
@@ -42,6 +43,8 @@ setIsAddItemModalOpen(true)
         selectedMenuId={selectedMenuId}
         fetchMenus={fetchMenus}
       />
+
+      <Footer/>
     </div>
   );
 }
