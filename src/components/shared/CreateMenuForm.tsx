@@ -3,24 +3,17 @@ import React, { useState } from "react";
 import { Axios } from "../api/Axios";
 
 
-interface MenuItem {
-    name: string;
-    description: string;
-    price: number;
-  }
-
-interface Menu {
-    _id: string;
-    name: string;
-    description: string;
-    items: MenuItem[]; 
-  }
 
 interface CreateMenuFormProps {
   onClose: () => void;
   onMenuCreated: () => void;
 }
 
+interface MenuItem {
+    name: string;
+    description: string;
+    price: number;
+  }
 const CreateMenuForm = ({ onClose, onMenuCreated }: CreateMenuFormProps) => {
   const [name, setName] = useState("");
   const [description, setDescription] = useState("");
@@ -32,7 +25,7 @@ const CreateMenuForm = ({ onClose, onMenuCreated }: CreateMenuFormProps) => {
     setError('')
     try {
         const response = await Axios.get("/menus");
-        const existingMenu = response.data.find((menu: Menu) => menu.name === name);
+        const existingMenu = response.data.find((menu: MenuItem) => menu.name === name);
         if (existingMenu) {
           setError("this menu already exists");
           return;
