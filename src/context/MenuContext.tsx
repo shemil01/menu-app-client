@@ -27,6 +27,8 @@ interface MenuContextType {
   setActiveMenu: (name: string) => void;
   filteredItems: MenuItem[];
   fetchMenus: () => void;
+  loading:boolean;
+
 }
 
 const MenuContext = createContext<MenuContextType | undefined>(undefined);
@@ -35,8 +37,11 @@ export const MenuProvider = ({ children }: { children: React.ReactNode }) => {
   const [menus, setMenus] = useState<Menu[]>([]);
   const [activeMenu, setActiveMenu] = useState<string>("");
   const [filteredItems, setFilteredItems] = useState<MenuItem[]>([]);
+  const [loading, setLoading] = useState<boolean>(false); 
+  
 
   const fetchMenus = async () => {
+        setLoading(true);
     try {
       const response = await Axios.get("/menus");
       setMenus(response.data);
@@ -45,6 +50,8 @@ export const MenuProvider = ({ children }: { children: React.ReactNode }) => {
       }
     } catch (error) {
       console.error("Error fetching menus:", error);
+    } finally{
+      setLoading(false)
     }
   };
 
@@ -69,6 +76,7 @@ export const MenuProvider = ({ children }: { children: React.ReactNode }) => {
         setActiveMenu,
         filteredItems,
         fetchMenus,
+        loading
       }}
     >
       {children}

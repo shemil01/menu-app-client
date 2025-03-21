@@ -1,3 +1,4 @@
+import Image from "next/image";
 import { FaPhone, FaEnvelope, FaMapMarkerAlt } from "react-icons/fa";
 
 export default function Footer() {
@@ -16,10 +17,11 @@ export default function Footer() {
           </div>
 
           <div className="border border-gray-500 p-6 rounded-lg flex flex-col items-center">
-            <div className="text-4xl text-blue-500 font-bold">🔷</div> 
+            <Image width={50    } height={50    } src={'/Logo.png'} alt="logo image" />
             <h2 className="text-lg font-semibold mt-2">
               <span className="text-blue-400">DEEP</span> NET <span className="text-gray-400">SOFT</span>
             </h2>
+
             <div className="flex space-x-4 mt-2 text-gray-400">
               <span className="cursor-pointer hover:text-white">📎</span>
               <span className="cursor-pointer hover:text-white">📷</span>
